@@ -37,17 +37,15 @@ public class DataGenerator {
     }
 
     public static String getRandomLogin() {
-        String login = faker.name().username();
         // TODO: добавить логику для объявления переменной login и задания её значения, для генерации
         //  случайного логина используйте faker
-        return login;
+        return faker.name().username();
     }
 
     public static String getRandomPassword() {
-        String password = faker.internet().password();
         // TODO: добавить логику для объявления переменной password и задания её значения, для генерации
         //  случайного пароля используйте faker
-        return password;
+        return faker.internet().password();
     }
 
     public static class Registration {
@@ -55,9 +53,8 @@ public class DataGenerator {
         }
 
         public static RegistrationDto getUser(String status) {
-            var user = new RegistrationDto(getRandomLogin(), getRandomPassword(), status);
             // TODO: создать пользователя user используя методы getRandomLogin(), getRandomPassword() и параметр status
-            return user;
+            return new RegistrationDto(getRandomLogin(), getRandomPassword(), status);
         }
 
         public static RegistrationDto getRegisteredUser(String status) {
