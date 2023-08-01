@@ -1,4 +1,4 @@
-package ru.netology.data;
+package ru.netology.test;
 
 import com.codeborne.selenide.Condition;
 import org.junit.jupiter.api.BeforeEach;
@@ -7,10 +7,10 @@ import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
-import static ru.netology.test.DataGenerator.Registration.getRegisteredUser;
-import static ru.netology.test.DataGenerator.Registration.getUser;
-import static ru.netology.test.DataGenerator.getRandomLogin;
-import static ru.netology.test.DataGenerator.getRandomPassword;
+import static ru.netology.data.DataGenerator.Registration.getRegisteredUser;
+import static ru.netology.data.DataGenerator.Registration.getUser;
+import static ru.netology.data.DataGenerator.getRandomLogin;
+import static ru.netology.data.DataGenerator.getRandomPassword;
 
 public class AuthTest {
     @BeforeEach
@@ -36,7 +36,7 @@ public class AuthTest {
         $("[data-test-id='password'] input").setValue(notRegisteredUser.getPassword());
         $("[data-test-id='action-login']").click();
         $("[data-test-id='error-notification'] .notification__content")
-                .shouldHave(Condition.exactText("Ошибка! Неверно указан логин или пароль"))
+                .shouldHave(Condition.exactText("Ошибка! Неверно указан логин или пароль"));
     }
 
     @Test
